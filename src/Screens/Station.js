@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {
   Text,
   View,
@@ -7,79 +7,67 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
+  StyleSheet
 } from "react-native";
-import {ImageSearchBar} from "../Components/ImageSearchBar";
-import {Images} from "../Config";
+import { ImageSearchBar } from "../Components/ImageSearchBar";
+import { Images } from "../Config";
 
-let {width, height} = Dimensions.get("window");
+let { width, height } = Dimensions.get("window");
 
 export class Station extends Component {
+
   state = {
     station: [
       {
-        text: "La Plagne",
+        title: "La Plagne",
         image: Images.snowmountain,
       },
       {
-        text: "Chamonix-Mont-Blanc",
+        title: "Chamonix-Mont-Blanc",
         image: Images.icemountain,
       },
       {
-        text: "Val Thorens",
+        title: "Val Thorens",
         image: Images.mountain,
       },
       {
-        text: "La Plagne",
+        title: "La Plagne",
         image: Images.icemountain,
       },
     ],
   };
 
-  renderStation = ({item}) => {
-    console.warn(item.image);
+  renderStation = ({ item }) => {
     return (
-      <View style={{marginVertical: 10}}>
+      <View style={{ marginVertical: 10 }}>
+
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("StationPass", {item})}
-          style={{
-            width: 165,
-            height: height * 0.15,
-            justifyContent: "flex-end",
-            alignItems: "flex-end",
-            marginHorizontal: 10,
-            borderRadius: 12,
-          }}
+          onPress={() => this.props.navigation.navigate("StationPass", { item })}
+          style={styles.station_btn}
         >
           <Image
             source={item.image}
-            style={{width: "100%", height: height * 0.15, borderRadius: 12}}
+            style={styles.station_image}
           />
-          <View style={{position: "absolute"}}>
+
+          <View style={{ position: "absolute" }}>
+
             <View
-              style={{
-                margin: 10,
-                backgroundColor: "#fff",
-                padding: 5,
-                borderRadius: 12,
-              }}
+              style={styles.station_text_view}
             >
-              <Text style={{fontSize: 10}}>Forfait 1 jour / 62€</Text>
+              <Text style={{ fontSize: 10 }}>Forfait 1 jour / 62€</Text>
             </View>
+
           </View>
         </TouchableOpacity>
 
         <View
-          style={{
-            marginHorizontal: 10,
-            minWidth: "10%",
-            maxWidth: "100%",
-            flexWrap: "wrap",
-          }}
+          style={styles.titleView}
         >
           <Text
-            style={{fontWeight: "bold", fontSize: 12, paddingHorizontal: 10}}
+            style={{}}
           >
-            {item.text}
+            {item.title}
           </Text>
         </View>
       </View>
@@ -87,24 +75,20 @@ export class Station extends Component {
   };
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <ScrollView>
           <ImageSearchBar
             placeholder="Où souhaitez-vous aller ?"
             image={Images.station_image}
           />
 
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <Text
-              style={{
-                paddingVertical: 15,
-                paddingHorizontal: 10,
-                fontWeight: "bold",
-                fontSize: 20,
-              }}
+              style={styles.stations_heading}
             >
               Alpes du Sud - 36 stations
             </Text>
+
             <FlatList
               data={this.state.station}
               renderItem={this.renderStation}
@@ -114,17 +98,13 @@ export class Station extends Component {
             />
           </View>
 
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <Text
-              style={{
-                paddingVertical: 15,
-                paddingHorizontal: 10,
-                fontWeight: "bold",
-                fontSize: 20,
-              }}
+              style={styles.stations_heading}
             >
               Alpes du Nord - 24 stations
             </Text>
+
             <FlatList
               data={this.state.station}
               renderItem={this.renderStation}
@@ -138,5 +118,42 @@ export class Station extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  station_btn: {
+    width: width * 0.4,
+    height: height * 0.15,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    marginHorizontal: 10,
+    borderRadius: 12,
+  },
+  station_image: {
+    width: "100%",
+    height: height * 0.15,
+    borderRadius: 12
+  },
+  station_text_view: {
+    margin: 10,
+    backgroundColor: "#fff",
+    padding: 5,
+    borderRadius: 12,
+  },
+  titleView: {
+    marginHorizontal: 10,
+    width: width * 0.4,
+    padding: 5
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 12,
+  },
+  stations_heading: {
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    fontWeight: "bold",
+    fontSize: 20,
+  }
+})
 
 export default Station;
