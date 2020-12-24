@@ -1,28 +1,39 @@
-import React, { Component } from "react";
-import { Text, View, ImageBackground, TextInput, Dimensions, StyleSheet } from "react-native";
+import React, {Component} from "react";
+import {
+  Text,
+  View,
+  ImageBackground,
+  TextInput,
+  Dimensions,
+  StyleSheet,
+} from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-let { width, height } = Dimensions.get("window");
+let {width, height} = Dimensions.get("window");
 
-export const ImageSearchBar = ({ placeholder, image }) => {
+export const ImageSearchBar = ({placeholder, image, title}) => {
   return (
-    <View style={{ flex: 1 }}>
-      <ImageBackground
-        source={image}
-        style={styles.ImageBackgroundView}
-      >
+    <View style={{flex: 1}}>
+      <ImageBackground source={image} style={styles.ImageBackgroundView}>
         <View
-          style={styles.searchView}
+          style={{flex: 1, justifyContent: "center"}}
         >
-          <AntDesign name="search1" color="#50b5b1" size={22} />
+          <View style={styles.searchView}>
+            <AntDesign name="search1" color="#50b5b1" size={22} />
 
-          <TextInput
-            style={{ width: width * 0.52, textAlign: "center" }}
-            placeholderTextColor="#000"
-            placeholder={placeholder}
-          />
+            <TextInput
+              style={{width: width * 0.52, textAlign: "center"}}
+              placeholderTextColor="#000"
+              placeholder={placeholder}
+            />
+          </View>
         </View>
 
+        {title == true ? (
+          <View style={styles.titleView}>
+            <Text style={styles.title}>Nos Logements</Text>
+          </View>
+        ) : null}
       </ImageBackground>
     </View>
   );
@@ -32,7 +43,7 @@ const styles = StyleSheet.create({
   ImageBackgroundView: {
     width: width,
     height: height * 0.45,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   searchView: {
     width: width * 0.9,
@@ -43,5 +54,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-  }
-})
+  },
+  titleView: {
+    width: width * 0.45,
+  },
+  title: {
+    fontSize: 26,
+    padding: 15,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+});
