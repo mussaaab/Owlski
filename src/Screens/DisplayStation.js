@@ -37,8 +37,7 @@ export class DisplayStation extends Component {
           </Text>
         </View>
 
-        <View
-          style={styles.bodyView}
+        <View style={styles.bodyView}
         >
           <View style={{ flex: 0.5 }}>
             <Text
@@ -53,8 +52,8 @@ export class DisplayStation extends Component {
 
           <View style={{ flexDirection: "row" }}>
             <TouchableOpacity
-              style={styles.button}
-            >
+              style={styles.button}>
+
               <AntDesign name="minus" size={18} color="#fff" />
             </TouchableOpacity>
 
@@ -63,8 +62,7 @@ export class DisplayStation extends Component {
                 paddingHorizontal: 10,
                 color: "#fff",
                 fontWeight: "bold",
-              }}
-            >
+              }}>
               1
             </Text>
 

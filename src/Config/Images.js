@@ -8,4 +8,11 @@ export default Images = {
   icon_chair_lift: require("../Assets/icon_chair_lift.png"),
   icon_snowmobile: require("../Assets/icon_snowmobile.png"),
   icon_bag: require('../Assets/bag.png'),
+  logement: require('../Assets/bg_logement.jpg'),
+  snowHouse: require('../Assets/snowWithHouse.jpg'),
+  snowHouse2: require('../Assets/snowWithHouse2.jpg'),
+  room: require('../Assets/room.jpeg'),
+  room2: require('../Assets/room2.jpg'),
+  room3: require('../Assets/room3.jpg'),
+ 
 };
