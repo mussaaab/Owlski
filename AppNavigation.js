@@ -4,7 +4,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createStackNavigator} from "@react-navigation/stack";
 
 //Screens
-import {Station, DisplayStation, NosLogements} from "./src/Screens";
+import {Station, DisplayStation, NosLogements, Profile} from "./src/Screens";
 
 const {width, height} = Dimensions.get("screen");
 
@@ -78,7 +78,7 @@ const BottomTabs = () => {
       />
       <BottomTab.Screen
         name="Profil"
-        component={Station}
+        component={Profile}
         options={{
           tabBarIcon: () => {
             return (
