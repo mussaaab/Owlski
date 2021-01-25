@@ -36,7 +36,7 @@ export const Header = () => {
     <View style={{flex: 1}}>
       <ImageBackground
         source={Images.logement}
-        style={styles.ImageBackgroundView}
+        style={styles.ImageBackground}
       >
         <View
           style={{flex: 1, justifyContent: "flex-end", alignItems: "flex-end"}}
@@ -51,9 +51,9 @@ export const Header = () => {
 };
 
 const styles = StyleSheet.create({
-  ImageBackgroundView: {
+  ImageBackground: {
     width: width,
-    height: height * 0.45,
+    height: height * 0.35,
     justifyContent: "center",
   },
   searchView: {
