@@ -1,15 +1,27 @@
 import React from "react";
-import {View, Text, Image, Dimensions} from "react-native";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {Image} from "react-native";
 import {createStackNavigator} from "@react-navigation/stack";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {Header} from "./src/Components/Header";
 
 //Screens
 import {Station, DisplayStation, NosLogements, Profile} from "./src/Screens";
 
-const {width, height} = Dimensions.get("screen");
-
 const BottomTab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
+const FavorisStack = createStackNavigator();
+
+const FavorisScreen = () => {
+  return (
+    <FavorisStack.Navigator>
+      <FavorisStack.Screen
+        name="FavorisScreen"
+        component={Header}
+        options={{headerShown: false}}
+      />
+    </FavorisStack.Navigator>
+  );
+};
 
 const BottomTabs = () => {
   return (
@@ -64,7 +76,7 @@ const BottomTabs = () => {
       />
       <BottomTab.Screen
         name="Favoris"
-        component={Station}
+        component={FavorisScreen}
         options={{
           tabBarIcon: () => {
             return (

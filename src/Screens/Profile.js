@@ -65,7 +65,7 @@ export class Profile extends Component {
                         <Text style={styles.text}>Se déconnecter </Text>
                     </TouchableOpacity>
 
-                    <View style={[styles.lineView, {marginTop: 10}]} />
+                    <View style={[styles.lineView, {marginTop: 10, marginBottom: 10}]} />
                 </ScrollView>
             </View>
         )
